@@ -1,0 +1,24 @@
+{
+  "name": "hostile-aliens",
+  "version": "1.0.0",
+  "description": "A simple game based on Space Invaders. Built in Javascript with some basic HTML/SCSS, using an OOP approach.",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimeejenner/hostile-aliens.git"
+  },
+  "keywords": [],
+  "author": "Aimee Jenner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aimeejenner/hostile-aliens/issues"
+  },
+  "homepage": "https://github.com/aimeejenner/hostile-aliens#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.7",
+    "jest": "^27.5.1"
+  }
+}

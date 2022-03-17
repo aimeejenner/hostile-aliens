@@ -1,4 +1,4 @@
-class AlienShip {
+export class AlienShip {
     constructor(shipType, totalHitPoints, pointsLostPerHit, numberOfShips) {
         this.shipType = shipType;
         this.totalHitPoints = totalHitPoints;
