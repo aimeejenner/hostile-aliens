@@ -29,6 +29,11 @@ function () {
 
       return shipsArr;
     }
+  }, {
+    key: "reduceHitPoints",
+    value: function reduceHitPoints() {
+      return this.totalHitPoints -= this.pointsLostPerHit;
+    }
   }]);
 
   return AlienShip;
@@ -72,7 +77,7 @@ var selectTarget = function selectTarget() {
 
 var hitTarget = function hitTarget() {
   var targetShip = selectTarget();
-  targetShip.totalHitPoints -= targetShip.pointsLostPerHit;
+  targetShip.reduceHitPoints();
 
   if (targetShip.totalHitPoints <= 0) {
     var i = allShipsArr.indexOf(targetShip);

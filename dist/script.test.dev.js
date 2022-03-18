@@ -18,6 +18,11 @@ describe("AlienShip class", function () {
     expect(Array.isArray(output)).toBe(true);
     expect(output.length).toEqual(5);
   });
+  test("Should reduce ship total hit points by pointsLostPerHit amount", function () {
+    var ship = new _script.AlienShip("Attack", 45, 12, 8);
+    var output = ship.reduceHitPoints();
+    expect(output).toEqual(33);
+  });
 });
 describe("getAllShips function", function () {
   test("Should return an array containing all of the ship objects", function () {

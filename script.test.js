@@ -16,6 +16,12 @@ describe("AlienShip class", () => {
         expect(Array.isArray(output)).toBe(true);
         expect(output.length).toEqual(5);
     });
+    test("Should reduce ship total hit points by pointsLostPerHit amount", () => {
+        const ship = new AlienShip("Attack", 45, 12, 8);
+        const output = ship.reduceHitPoints();
+        expect(output).toEqual(33);
+
+    })
 })
 
 describe("getAllShips function", () => {

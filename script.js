@@ -12,7 +12,10 @@ class AlienShip {
             shipsArr[i] = new AlienShip(this.shipType, this.totalHitPoints, this.pointsLostPerHit, this.numberOfShips);
         }
         return shipsArr;
+    }
 
+    reduceHitPoints() {
+        return this.totalHitPoints -= this.pointsLostPerHit;
     }
 }
 
@@ -54,7 +57,7 @@ const selectTarget = () => {
 // If total hit points <= 0 ship is destroyed (removed from allShipsArr)
 const hitTarget = () => {
     let targetShip = selectTarget();
-    targetShip.totalHitPoints -= targetShip.pointsLostPerHit;
+    targetShip.reduceHitPoints();
     if (targetShip.totalHitPoints <= 0) {
         let i = allShipsArr.indexOf(targetShip);
         if (i != -1) {
