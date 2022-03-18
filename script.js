@@ -57,3 +57,13 @@ export const hitTarget = () => {
         }
     }
 }
+
+// Game is over if there are no ships left or if the Mother Ship has been destroyed
+const gameOver = () => {
+    if (allShipsArr === false || !allShipsArr.some(ship => ship.shipType === "Mother")) {
+        shipsContainer.innerHTML = "";
+        inPlay = false;
+        alert("Game Over");
+        fireButton.innerHTML = "Restart Game";
+    }
+}
