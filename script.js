@@ -1,4 +1,4 @@
-export class AlienShip {
+class AlienShip {
     constructor(shipType, totalHitPoints, pointsLostPerHit, numberOfShips) {
         this.shipType = shipType;
         this.totalHitPoints = totalHitPoints;
@@ -16,14 +16,14 @@ export class AlienShip {
     }
 }
 
-// const shipsContainer = document.querySelector(".ships");
-// const fireButton = document.querySelector(".fire-button");
+const shipsContainer = document.querySelector(".ships");
+const fireButton = document.querySelector(".fire-button");
 let inPlay = false;
 let allShipsArr = [];
 
 
 // Get an array of all ship objects
-export const getAllShips = () => {
+const getAllShips = () => {
     const motherShip = new AlienShip("Mother", 100, 9, 1);
     const defenceShip = new AlienShip("Defence", 80, 10, 5);
     const attackShip = new AlienShip("Attack", 45, 12, 8);
@@ -46,7 +46,7 @@ const startGame = () => {
 
 // Select random ship and reduce total hit points by pointsLostPerHit amount
 // If total hit points <= 0 ship is destroyed (removed from allShipsArr)
-export const hitTarget = () => {
+const hitTarget = () => {
     let targetShip = allShipsArr[Math.floor(Math.random()*allShipsArr.length)];
     targetShip.totalHitPoints -= targetShip.pointsLostPerHit;
     if (targetShip.totalHitPoints <= 0) {
@@ -67,3 +67,14 @@ const gameOver = () => {
         fireButton.innerHTML = "Restart Game";
     }
 }
+
+// Call functions when button is clicked
+fireButton.addEventListener("click", (event) => {
+    if (inPlay === false) {
+        startGame();
+    } else {
+        hitTarget();
+        displayShips();
+        gameOver();
+    }
+})
