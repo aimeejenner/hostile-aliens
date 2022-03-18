@@ -15,3 +15,22 @@ export class AlienShip {
 
     }
 }
+
+const shipsContainer = document.querySelector(".ships");
+const fireButton = document.querySelector(".fire-button");
+let inPlay = false;
+let allShipsArr = [];
+
+
+// Get an array of all ship objects
+const getAllShips = () => {
+    const motherShip = new AlienShip("Mother", 100, 9, 1);
+    const defenceShip = new AlienShip("Defence", 80, 10, 5);
+    const attackShip = new AlienShip("Attack", 45, 12, 8);
+    allShipsArr = motherShip.getShipsArr().concat(defenceShip.getShipsArr(), attackShip.getShipsArr());
+}
+
+// Display all ships on screen
+const displayShips = () => {
+    shipsContainer.innerHTML = allShipsArr.map(ship => `<div>${ship.shipType}<br>${ship.totalHitPoints}</div>`).join(" ");
+}
