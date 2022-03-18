@@ -1,4 +1,4 @@
-import { AlienShip, getAllShips, hitTarget } from "./script.js";
+import { AlienShip, getAllShips, hitTarget, gameOver } from "./script.js";
 
 describe("AlienShip class", () => {
     test("Should return a ship object with the correct key/value pairs", () => {
@@ -24,4 +24,22 @@ describe("getAllShips function", () => {
         expect(Array.isArray(output)).toBe(true);
         expect(output.length).toEqual(14);
     });
+})
+
+describe("hitTarget function", () => {
+    test("Should reduce total hit points by pointsLostPerHit amount", () => {
+        const output = hitTarget();
+    });
+    test("Should remove ship from array if totalHitPoints <= 0", () => {
+        const output = hitTarget();
+    });
+})
+
+describe("gameOver function", () => {
+    test("Should end game if all ships are destroyed", () => {
+        const output = gameOver();
+    });
+    test("Should end game if Mother Ship is destroyed", () => {
+        const output = gameOver();
+    })
 })

@@ -44,10 +44,16 @@ const startGame = () => {
     fireButton.innerHTML = "FIRE!";
 }
 
-// Select random ship and reduce total hit points by pointsLostPerHit amount
+// Select random ship as target
+const selectTarget = () => {
+    let targetShip = allShipsArr[Math.floor(Math.random()*allShipsArr.length)];
+    return targetShip;
+}
+
+// Reduce target ship total hit points by pointsLostPerHit amount
 // If total hit points <= 0 ship is destroyed (removed from allShipsArr)
 const hitTarget = () => {
-    let targetShip = allShipsArr[Math.floor(Math.random()*allShipsArr.length)];
+    targetShip = selectTarget();
     targetShip.totalHitPoints -= targetShip.pointsLostPerHit;
     if (targetShip.totalHitPoints <= 0) {
         let i = allShipsArr.indexOf(targetShip);
@@ -73,6 +79,7 @@ fireButton.addEventListener("click", (event) => {
     if (inPlay === false) {
         startGame();
     } else {
+        selectTarget();
         hitTarget();
         displayShips();
         gameOver();
