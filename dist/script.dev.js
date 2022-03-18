@@ -71,7 +71,7 @@ var selectTarget = function selectTarget() {
 
 
 var hitTarget = function hitTarget() {
-  targetShip = selectTarget();
+  var targetShip = selectTarget();
   targetShip.totalHitPoints -= targetShip.pointsLostPerHit;
 
   if (targetShip.totalHitPoints <= 0) {

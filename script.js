@@ -53,7 +53,7 @@ const selectTarget = () => {
 // Reduce target ship total hit points by pointsLostPerHit amount
 // If total hit points <= 0 ship is destroyed (removed from allShipsArr)
 const hitTarget = () => {
-    targetShip = selectTarget();
+    let targetShip = selectTarget();
     targetShip.totalHitPoints -= targetShip.pointsLostPerHit;
     if (targetShip.totalHitPoints <= 0) {
         let i = allShipsArr.indexOf(targetShip);
