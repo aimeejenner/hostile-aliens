@@ -16,8 +16,8 @@ export class AlienShip {
     }
 }
 
-const shipsContainer = document.querySelector(".ships");
-const fireButton = document.querySelector(".fire-button");
+// const shipsContainer = document.querySelector(".ships");
+// const fireButton = document.querySelector(".fire-button");
 let inPlay = false;
 let allShipsArr = [];
 
@@ -42,4 +42,18 @@ const startGame = () => {
     displayShips();
     inPlay = true;
     fireButton.innerHTML = "FIRE!";
+}
+
+// Select random ship and reduce total hit points by pointsLostPerHit amount
+// If total hit points <= 0 ship is destroyed (removed from allShipsArr)
+export const hitTarget = () => {
+    let targetShip = allShipsArr[Math.floor(Math.random()*allShipsArr.length)];
+    targetShip.totalHitPoints -= targetShip.pointsLostPerHit;
+    if (targetShip.totalHitPoints <= 0) {
+        let i = allShipsArr.indexOf(targetShip);
+        if (i != -1) {
+            allShipsArr.splice(i, 1);
+            alert(`${targetShip.shipType} Ship destroyed`);
+        }
+    }
 }

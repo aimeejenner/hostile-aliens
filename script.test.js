@@ -1,5 +1,4 @@
-import { AlienShip } from "./script.js";
-import { getAllShips } from "./script.js";
+import { AlienShip, getAllShips, hitTarget } from "./script.js";
 
 describe("AlienShip class", () => {
     test("Should return a ship object with the correct key/value pairs", () => {
