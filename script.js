@@ -82,7 +82,6 @@ fireButton.addEventListener("click", (event) => {
     if (inPlay === false) {
         startGame();
     } else {
-        selectTarget();
         hitTarget();
         displayShips();
         gameOver();
