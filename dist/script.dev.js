@@ -1,53 +1,16 @@
 "use strict";
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var AlienShip =
-/*#__PURE__*/
-function () {
-  function AlienShip(shipType, totalHitPoints, pointsLostPerHit, numberOfShips) {
-    _classCallCheck(this, AlienShip);
-
-    this.shipType = shipType;
-    this.totalHitPoints = totalHitPoints;
-    this.pointsLostPerHit = pointsLostPerHit;
-    this.numberOfShips = numberOfShips;
-  }
-
-  _createClass(AlienShip, [{
-    key: "getShipsArr",
-    value: function getShipsArr() {
-      var shipsArr = [];
-
-      for (var i = 0; i < this.numberOfShips; i++) {
-        shipsArr[i] = new AlienShip(this.shipType, this.totalHitPoints, this.pointsLostPerHit, this.numberOfShips);
-      }
-
-      return shipsArr;
-    }
-  }, {
-    key: "reduceHitPoints",
-    value: function reduceHitPoints() {
-      return this.totalHitPoints -= this.pointsLostPerHit;
-    }
-  }]);
-
-  return AlienShip;
-}();
+var _alienShip = require("./alien-ship.js");
 
 var shipsContainer = document.querySelector(".ships");
-var fireButton = document.querySelector(".fire-button");
+var fireButton = document.querySelector(".button__fire-button");
 var inPlay = false;
 var allShipsArr = []; // Get an array of all ship objects
 
 var getAllShips = function getAllShips() {
-  var motherShip = new AlienShip("Mother", 100, 9, 1);
-  var defenceShip = new AlienShip("Defence", 80, 10, 5);
-  var attackShip = new AlienShip("Attack", 45, 12, 8);
+  var motherShip = new _alienShip.AlienShip("Mother", 100, 9, 1);
+  var defenceShip = new _alienShip.AlienShip("Defence", 80, 10, 5);
+  var attackShip = new _alienShip.AlienShip("Attack", 45, 12, 8);
   allShipsArr = motherShip.getShipsArr().concat(defenceShip.getShipsArr(), attackShip.getShipsArr());
   return allShipsArr;
 }; // Display all ships on screen

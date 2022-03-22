@@ -1,4 +1,4 @@
-import { AlienShip, getAllShips, selectTarget } from "./script.js";
+import { AlienShip } from "./alien-ship.js";
 
 describe("AlienShip class", () => {
     test("Should return a ship object with the correct key/value pairs", () => {
@@ -21,20 +21,5 @@ describe("AlienShip class", () => {
         const output = ship.reduceHitPoints();
         expect(output).toEqual(33);
 
-    })
-})
-
-describe("getAllShips function", () => {
-    test("Should return an array containing all of the ship objects", () => {
-        const output = getAllShips();
-        expect(Array.isArray(output)).toBe(true);
-        expect(output.length).toEqual(14);
     });
-})
-
-describe("selectTarget function", () => {
-    test("Should return a ship object", () => {
-        const output = selectTarget();
-        expect(output.constructor.name).toEqual("AlienShip");
-    })
 })
