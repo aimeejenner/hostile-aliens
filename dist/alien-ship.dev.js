@@ -14,13 +14,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var AlienShip =
 /*#__PURE__*/
 function () {
-  function AlienShip(shipType, totalHitPoints, pointsLostPerHit, numberOfShips) {
+  function AlienShip(shipType, totalHitPoints, pointsLostPerHit, numberOfShips, shipImage) {
     _classCallCheck(this, AlienShip);
 
     this.shipType = shipType;
     this.totalHitPoints = totalHitPoints;
     this.pointsLostPerHit = pointsLostPerHit;
     this.numberOfShips = numberOfShips;
+    this.shipImage = shipImage;
   }
 
   _createClass(AlienShip, [{
@@ -29,7 +30,7 @@ function () {
       var shipsArr = [];
 
       for (var i = 0; i < this.numberOfShips; i++) {
-        shipsArr[i] = new AlienShip(this.shipType, this.totalHitPoints, this.pointsLostPerHit, this.numberOfShips);
+        shipsArr[i] = new AlienShip(this.shipType, this.totalHitPoints, this.pointsLostPerHit, this.numberOfShips, this.shipImage);
       }
 
       return shipsArr;

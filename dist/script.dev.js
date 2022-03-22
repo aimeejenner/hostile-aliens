@@ -8,9 +8,9 @@ var inPlay = false;
 var allShipsArr = []; // Get an array of all ship objects
 
 var getAllShips = function getAllShips() {
-  var motherShip = new _alienShip.AlienShip("Mother", 100, 9, 1);
-  var defenceShip = new _alienShip.AlienShip("Defence", 80, 10, 5);
-  var attackShip = new _alienShip.AlienShip("Attack", 45, 12, 8);
+  var motherShip = new _alienShip.AlienShip("Mother", 100, 9, 1, '<img class = "ships__mother" src="/images/mother-ship.png">');
+  var defenceShip = new _alienShip.AlienShip("Defence", 80, 10, 5, '<img class = "ships__defence" src="/images/defence-ship.jpg">');
+  var attackShip = new _alienShip.AlienShip("Attack", 45, 12, 8, '<img class ="ships__attack" src="/images/attack-ship.png">');
   allShipsArr = motherShip.getShipsArr().concat(defenceShip.getShipsArr(), attackShip.getShipsArr());
   return allShipsArr;
 }; // Display all ships on screen
@@ -18,7 +18,7 @@ var getAllShips = function getAllShips() {
 
 var displayShips = function displayShips() {
   shipsContainer.innerHTML = allShipsArr.map(function (ship) {
-    return "<div>".concat(ship.shipType, "<br>").concat(ship.totalHitPoints, "</div>");
+    return "<div>".concat(ship.shipImage, "<br>").concat(ship.totalHitPoints, "</div>");
   }).join(" ");
 }; // Get initial game settings
 
