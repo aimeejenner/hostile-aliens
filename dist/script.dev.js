@@ -46,8 +46,12 @@ var hitTarget = function hitTarget() {
     var i = allShipsArr.indexOf(targetShip);
 
     if (i != -1) {
-      allShipsArr.splice(i, 1);
-      alert("".concat(targetShip.shipType, " Ship destroyed"));
+      targetShip.shipImage = '<img class = "ships__explosion" src="/images/explosion.png">';
+      targetShip.totalHitPoints = "";
+      setTimeout(function () {
+        allShipsArr.splice(i, 1);
+        displayShips();
+      }, 500);
     }
   }
 }; // Game is over if there are no ships left or if the Mother Ship has been destroyed
@@ -57,9 +61,8 @@ var gameOver = function gameOver() {
   if (allShipsArr === false || !allShipsArr.some(function (ship) {
     return ship.shipType === "Mother";
   })) {
-    shipsContainer.innerHTML = "";
+    shipsContainer.innerHTML = "GAME OVER";
     inPlay = false;
-    alert("Game Over");
     fireButton.innerHTML = "Restart Game";
   }
 }; // Call functions when button is clicked

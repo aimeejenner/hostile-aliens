@@ -42,8 +42,12 @@ const hitTarget = () => {
     if (targetShip.totalHitPoints <= 0) {
         let i = allShipsArr.indexOf(targetShip);
         if (i != -1) {
-            allShipsArr.splice(i, 1);
-            alert(`${targetShip.shipType} Ship destroyed`);
+            targetShip.shipImage = '<img class = "ships__explosion" src="/images/explosion.png">'
+            targetShip.totalHitPoints = "";
+            setTimeout(() => {
+                allShipsArr.splice(i, 1);
+                displayShips();
+              }, 500)
         }
     }
 }
@@ -51,9 +55,8 @@ const hitTarget = () => {
 // Game is over if there are no ships left or if the Mother Ship has been destroyed
 const gameOver = () => {
     if (allShipsArr === false || !allShipsArr.some(ship => ship.shipType === "Mother")) {
-        shipsContainer.innerHTML = "";
+        shipsContainer.innerHTML = "GAME OVER";
         inPlay = false;
-        alert("Game Over");
         fireButton.innerHTML = "Restart Game";
     }
 }

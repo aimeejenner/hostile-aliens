@@ -27,6 +27,9 @@
 .ships__mother {
   width: 200px;
 }
+.ships__explosion {
+  width: 150px;
+}
 .ships__defence {
   width: 100px;
 }
