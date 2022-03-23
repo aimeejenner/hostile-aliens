@@ -10,7 +10,7 @@ describe("AlienShip class", function () {
       totalHitPoints: 100,
       pointsLostPerHit: 9,
       numberOfShips: 1,
-      image: '<img src="/images/mother-ship.png">'
+      shipImage: '<img src="/images/mother-ship.png">'
     });
   });
   test("Should return the correct key/value pairs", function () {
@@ -20,7 +20,7 @@ describe("AlienShip class", function () {
       totalHitPoints: 333,
       pointsLostPerHit: 52,
       numberOfShips: 11,
-      image: '<img src="/images/mother-ship.png">'
+      shipImage: '<img src="/images/mother-ship.png">'
     });
   });
   test("Should return an array", function () {

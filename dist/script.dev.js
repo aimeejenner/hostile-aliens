@@ -51,6 +51,7 @@ var hitTarget = function hitTarget() {
       setTimeout(function () {
         allShipsArr.splice(i, 1);
         displayShips();
+        gameOver();
       }, 500);
     }
   }
@@ -61,7 +62,7 @@ var gameOver = function gameOver() {
   if (allShipsArr === false || !allShipsArr.some(function (ship) {
     return ship.shipType === "Mother";
   })) {
-    shipsContainer.innerHTML = "GAME OVER";
+    alert("Game over");
     inPlay = false;
     fireButton.innerHTML = "Restart Game";
   }

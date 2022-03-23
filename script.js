@@ -47,6 +47,7 @@ const hitTarget = () => {
             setTimeout(() => {
                 allShipsArr.splice(i, 1);
                 displayShips();
+                gameOver();
               }, 500)
         }
     }
@@ -55,7 +56,7 @@ const hitTarget = () => {
 // Game is over if there are no ships left or if the Mother Ship has been destroyed
 const gameOver = () => {
     if (allShipsArr === false || !allShipsArr.some(ship => ship.shipType === "Mother")) {
-        shipsContainer.innerHTML = "GAME OVER";
+        alert("Game over");
         inPlay = false;
         fireButton.innerHTML = "Restart Game";
     }
