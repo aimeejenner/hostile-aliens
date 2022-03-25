@@ -38,11 +38,16 @@ const selectTarget = () => {
 // If total hit points <= 0 ship is destroyed (removed from allShipsArr)
 const hitTarget = () => {
     let targetShip = selectTarget();
+    let newStr = targetShip.shipImage += "HIT!";
+    setTimeout(() => {
+        targetShip.shipImage = newStr.replace("HIT!", "");
+        displayShips();
+      }, 500)
     targetShip.reduceHitPoints();
     if (targetShip.totalHitPoints <= 0) {
         let i = allShipsArr.indexOf(targetShip);
         if (i != -1) {
-            targetShip.shipImage = '<img class = "ships__explosion" src="/images/explosion.png">'
+            targetShip.shipImage = '<img class = "ships__explosion" src="/images/explosion.png">';
             targetShip.totalHitPoints = "";
             setTimeout(() => {
                 allShipsArr.splice(i, 1);

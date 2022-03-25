@@ -40,6 +40,11 @@ var selectTarget = function selectTarget() {
 
 var hitTarget = function hitTarget() {
   var targetShip = selectTarget();
+  var newStr = targetShip.shipImage += "HIT!";
+  setTimeout(function () {
+    targetShip.shipImage = newStr.replace("HIT!", "");
+    displayShips();
+  }, 500);
   targetShip.reduceHitPoints();
 
   if (targetShip.totalHitPoints <= 0) {
