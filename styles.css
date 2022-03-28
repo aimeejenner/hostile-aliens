@@ -7,6 +7,13 @@
   background-color: black;
 }
 
+.intro {
+  height: 50vh;
+  text-align: center;
+  line-height: 70vh;
+  font-size: 28px;
+}
+
 .ships {
   height: 50vh;
   margin: 50px;

@@ -2,8 +2,9 @@
 
 var _alienShip = require("./alien-ship.js");
 
-var shipsContainer = document.querySelector(".ships");
+var shipsContainer = document.querySelector(".intro");
 var fireButton = document.querySelector(".button__fire-button");
+shipsContainer.innerHTML = "Click the FIRE button to hit a random alien ship. The game is over when all ships are destroyed.";
 var inPlay = false;
 var allShipsArr = []; // Get an array of all ship objects
 
@@ -24,6 +25,7 @@ var displayShips = function displayShips() {
 
 
 var startGame = function startGame() {
+  shipsContainer.className = "ships";
   getAllShips();
   displayShips();
   inPlay = true;
@@ -40,11 +42,11 @@ var selectTarget = function selectTarget() {
 
 var hitTarget = function hitTarget() {
   var targetShip = selectTarget();
-  var newStr = targetShip.shipImage += "HIT!";
+  var shipHit = targetShip.shipImage += "HIT!";
   setTimeout(function () {
-    targetShip.shipImage = newStr.replace("HIT!", "");
+    targetShip.shipImage = shipHit.replace("HIT!", "");
     displayShips();
-  }, 500);
+  }, 300);
   targetShip.reduceHitPoints();
 
   if (targetShip.totalHitPoints <= 0) {
@@ -67,7 +69,8 @@ var gameOver = function gameOver() {
   if (allShipsArr === false || !allShipsArr.some(function (ship) {
     return ship.shipType === "Mother";
   })) {
-    alert("Game over");
+    shipsContainer.className = "intro";
+    shipsContainer.innerHTML = "GAME OVER";
     inPlay = false;
     fireButton.innerHTML = "Restart Game";
   }

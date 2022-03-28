@@ -1,7 +1,8 @@
 import { AlienShip } from "./alien-ship.js";
 
-const shipsContainer = document.querySelector(".ships");
+const shipsContainer = document.querySelector(".intro");
 const fireButton = document.querySelector(".button__fire-button");
+shipsContainer.innerHTML = "Click the FIRE button to hit a random alien ship. The game is over when all ships are destroyed.";
 let inPlay = false;
 let allShipsArr = [];
 
@@ -22,6 +23,7 @@ const displayShips = () => {
 
 // Get initial game settings
 const startGame = () => {
+    shipsContainer.className = "ships";
     getAllShips();
     displayShips();
     inPlay = true;
@@ -38,11 +40,11 @@ const selectTarget = () => {
 // If total hit points <= 0 ship is destroyed (removed from allShipsArr)
 const hitTarget = () => {
     let targetShip = selectTarget();
-    let newStr = targetShip.shipImage += "HIT!";
+    let shipHit = targetShip.shipImage += "HIT!";
     setTimeout(() => {
-        targetShip.shipImage = newStr.replace("HIT!", "");
+        targetShip.shipImage = shipHit.replace("HIT!", "");
         displayShips();
-      }, 500)
+      }, 300)
     targetShip.reduceHitPoints();
     if (targetShip.totalHitPoints <= 0) {
         let i = allShipsArr.indexOf(targetShip);
@@ -61,7 +63,8 @@ const hitTarget = () => {
 // Game is over if there are no ships left or if the Mother Ship has been destroyed
 const gameOver = () => {
     if (allShipsArr === false || !allShipsArr.some(ship => ship.shipType === "Mother")) {
-        alert("Game over");
+        shipsContainer.className = "intro";
+        shipsContainer.innerHTML = "GAME OVER";
         inPlay = false;
         fireButton.innerHTML = "Restart Game";
     }
