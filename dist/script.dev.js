@@ -53,7 +53,7 @@ var hitTarget = function hitTarget() {
     var i = allShipsArr.indexOf(targetShip);
 
     if (i != -1) {
-      targetShip.shipImage = '<img class = "ships__explosion" src="/images/explosion.png">';
+      targetShip.shipImage = '<img class = "ships__explosion" src="./images/explosion.png">';
       targetShip.totalHitPoints = "";
       setTimeout(function () {
         allShipsArr.splice(i, 1);

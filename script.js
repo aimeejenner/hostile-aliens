@@ -49,7 +49,7 @@ const hitTarget = () => {
     if (targetShip.totalHitPoints <= 0) {
         let i = allShipsArr.indexOf(targetShip);
         if (i != -1) {
-            targetShip.shipImage = '<img class = "ships__explosion" src="/images/explosion.png">';
+            targetShip.shipImage = '<img class = "ships__explosion" src="./images/explosion.png">';
             targetShip.totalHitPoints = "";
             setTimeout(() => {
                 allShipsArr.splice(i, 1);
