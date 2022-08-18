@@ -9,9 +9,9 @@ let allShipsArr = [];
 
 // Get an array of all ship objects
 const getAllShips = () => {
-    const motherShip = new AlienShip("Mother", 100, 9, 1, '<img class = "ships__mother" src="/images/mother-ship.png">');
-    const defenceShip = new AlienShip("Defence", 80, 10, 5, '<img class = "ships__defence" src="/images/defence-ship.jpg">');
-    const attackShip = new AlienShip("Attack", 45, 12, 8, '<img class ="ships__attack" src="/images/attack-ship.png">');
+    const motherShip = new AlienShip("Mother", 100, 9, 1, '<img class = "ships__mother" src="./images/mother-ship.png">');
+    const defenceShip = new AlienShip("Defence", 80, 10, 5, '<img class = "ships__defence" src="./images/defence-ship.jpg">');
+    const attackShip = new AlienShip("Attack", 45, 12, 8, '<img class ="ships__attack" src="./images/attack-ship.png">');
     allShipsArr = motherShip.getShipsArr().concat(defenceShip.getShipsArr(), attackShip.getShipsArr());
     return allShipsArr;
 }
